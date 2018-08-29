@@ -1,4 +1,4 @@
-# DT openFrameworks Fall 2018
+# scans421_dtOF_2018
 
-> Hello world!
+> The repo for my sketches from the Fall 2018 openFrameworks class at Parsons DT
 
