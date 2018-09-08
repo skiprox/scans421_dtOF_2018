@@ -31,14 +31,7 @@ void ofApp::draw(){
 	// Large squares
 	if (counter % 50 == 0) {
 		ofBackground(20);
-		for (int i = 0; i < NLARGESQUARES; i++) {
-			ofSetColor(ofRandom(150, 255), 0, 120);
-	        float width = ofRandom(50, 150);
-	        float height = ofRandom(50, 150);
-	        float xOffset = ofRandom(-640, 640);
-	        float yOffset = ofRandom(-640, 640);
-	        ofDrawRectangle(ofGetWidth()/2+xOffset, ofGetHeight()/2+yOffset, width, height);
-		}
+		squarePattern.draw();
 	}
 }
 
@@ -74,14 +67,7 @@ void ofApp::mouseReleased(int x, int y, int button){
 	// velY *= 2;
 	cout << "we clicked" << endl;
 	ofBackground(20);
-	for (int i = 0; i < NLARGESQUARES; i++) {
-		ofSetColor(ofRandom(150, 255), 0, 120);
-        float width = ofRandom(50, 150);
-        float height = ofRandom(50, 150);
-        float xOffset = ofRandom(-340, 340);
-        float yOffset = ofRandom(-340, 340);
-        ofDrawRectangle(ofGetMouseX()+xOffset, ofGetMouseY()+yOffset, width, height);
-	}
+	squarePattern.draw();
 }
 
 //--------------------------------------------------------------

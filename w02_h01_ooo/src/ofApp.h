@@ -2,9 +2,9 @@
 
 #include "ofMain.h"
 #include "Square.h"
+#include "SquarePattern.h"
 
 #define NSQUARES 100
-#define NLARGESQUARES 200
 
 class ofApp : public ofBaseApp{
 
@@ -26,6 +26,8 @@ class ofApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
 
 		Square groupOfSquares[NSQUARES];
+
+		SquarePattern squarePattern;
 
 		int counter = 0;
 		
