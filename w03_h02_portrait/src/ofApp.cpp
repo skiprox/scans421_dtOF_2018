@@ -39,8 +39,8 @@ void ofApp::update(){
 	// Eyes
 	eyeInnerLeftMove.x = eyeInnerLeft.x + eyeInnerDiam/2 * cos(ofGetElapsedTimef() * 8);
 	eyeInnerLeftMove.y = eyeInnerLeft.y + eyeInnerDiam/2 * sin(ofGetElapsedTimef() * 8);
-	eyeInnerRightMove.x = eyeInnerRight.x + eyeInnerDiam/2 * cos(ofGetElapsedTimef() * 8);
-	eyeInnerRightMove.y = eyeInnerRight.y + eyeInnerDiam/2 * sin(ofGetElapsedTimef() * 8);
+	eyeInnerRightMove.x = eyeInnerRight.x + eyeInnerDiam/2 * sin(ofGetElapsedTimef() * 8);
+	eyeInnerRightMove.y = eyeInnerRight.y + eyeInnerDiam/2 * cos(ofGetElapsedTimef() * 8);
 	// Mouth
 	glm::vec2 mouse;
 	mouse.x = ofMap(ofGetMouseX(), 0, ofGetWidth(), mouth.x - 100, mouth.x + 100);
