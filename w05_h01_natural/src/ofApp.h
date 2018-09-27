@@ -11,6 +11,7 @@ class ofApp : public ofBaseApp{
 		void draw();
 
 		void mouseReleased(int x, int y, int button);
+		void mouseMoved(int x, int y );
 
 		vector<Leaf> leaves;
 		

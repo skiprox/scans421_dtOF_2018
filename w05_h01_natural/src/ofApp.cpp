@@ -8,9 +8,9 @@ void ofApp::setup(){
 		Leaf leaf;
 		glm::vec2 pos;
 		pos.x = ofRandom(100, ofGetWidth() - 100);
-		pos.y = ofRandom(20, ofGetHeight()/2);
+		pos.y = ofRandom(ofGetHeight() + 100, ofGetHeight() + 200);
 		float width = ofRandom(80, 100);
-		float height = ofRandom(80, 100);
+		float height = width * ofRandom(1.1, 1.5);
 		leaf.setup(pos, width, height);
 		leaves.push_back(leaf);
 	}
@@ -18,8 +18,13 @@ void ofApp::setup(){
 
 //--------------------------------------------------------------
 void ofApp::update(){
+	vector<int> toDelete;
 	for (int i = 0; i < leaves.size(); i++) {
-		leaves[i].update();
+		if (leaves[i].getCurrentPos().y < -100) {
+			leaves.erase(leaves.begin() + i);
+		} else {
+			leaves[i].update();
+		}
 	}
 }
 
@@ -36,6 +41,18 @@ void ofApp::mouseReleased(int x, int y, int button){
 	glm::vec2 pos;
 	pos.x = x;
 	pos.y = y;
+	float width = ofRandom(80, 100);
+	float height = ofRandom(80, 100);
+	leaf.setup(pos, width, height);
+	leaves.push_back(leaf);
+}
+
+//--------------------------------------------------------------
+void ofApp::mouseMoved(int x, int y ){
+	Leaf leaf;
+	glm::vec2 pos;
+	pos.x = x;
+	pos.y = ofRandom(ofGetHeight() + 100, ofGetHeight() + 200);
 	float width = ofRandom(80, 100);
 	float height = ofRandom(80, 100);
 	leaf.setup(pos, width, height);
