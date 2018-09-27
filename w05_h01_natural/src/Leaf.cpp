@@ -9,7 +9,14 @@ void Leaf::setup(glm::vec2 _pos, float _width, float _height){
 	vel.y = ofRandom(-1, -4);
 	deg = ofRandom(-10, 10);
 	noiseyDeg = ofNoise(ofGetElapsedTimef() + 25);
-	color = ofColor(ofRandom(60, 140), 40, ofRandom(180, 240));
+	float ranColorVal = ofRandom(1);
+	if (ranColorVal < 0.33) {
+		color = ofColor(ofRandom(60, 140), 40, ofRandom(180, 240));
+	} else if (ranColorVal < 0.66) {
+		color = ofColor(40, ofRandom(180, 240), ofRandom(60, 140));
+	} else {
+		color = ofColor(ofRandom(180, 240), 40, ofRandom(60, 140));
+	}
 	noiseyVel.x = ofNoise(ofGetElapsedTimef());
 	noiseyVel.y = ofNoise(ofGetElapsedTimef() + 100);
 }
