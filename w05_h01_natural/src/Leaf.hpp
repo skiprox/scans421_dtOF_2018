@@ -8,7 +8,7 @@ class Leaf {
 		void draw();
 		glm::vec2 getCurrentPos();
 
-		glm::vec2 pos, vel, noisey;
-		float width, height;
+		glm::vec2 pos, vel, noiseyVel;
+		float width, height, deg, noiseyDeg;
 		ofColor color;
 };

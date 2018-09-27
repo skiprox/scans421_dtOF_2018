@@ -7,25 +7,31 @@ void Leaf::setup(glm::vec2 _pos, float _width, float _height){
 	height = _height;
 	vel.x = 0;
 	vel.y = ofRandom(-1, -4);
+	deg = ofRandom(-10, 10);
+	noiseyDeg = ofNoise(ofGetElapsedTimef() + 25);
 	color = ofColor(ofRandom(60, 140), 40, ofRandom(180, 240));
-	noisey.x = ofNoise(ofGetElapsedTimef());
-	noisey.y = ofNoise(ofGetElapsedTimef() + 100);
+	noiseyVel.x = ofNoise(ofGetElapsedTimef());
+	noiseyVel.y = ofNoise(ofGetElapsedTimef() + 100);
 }
 
 //--------------------------------------------------------------
 void Leaf::update(){
-	noisey.x = ofNoise(ofGetElapsedTimef()) - 0.5;
-	noisey.y = ofNoise(ofGetElapsedTimef() + 100) - 0.5;
-	pos.x += 1 * vel.x + noisey.x;
-	pos.y += 1 * vel.y + noisey.y;
+	noiseyVel.x = ofNoise(ofGetElapsedTimef()) - 0.5;
+	noiseyVel.y = ofNoise(ofGetElapsedTimef() + 100) - 0.5;
+	noiseyDeg = ofNoise(ofGetElapsedTimef() + 25) - 0.5;
+	deg += noiseyDeg;
+	pos.x += 1 * vel.x + noiseyVel.x;
+	pos.y += 1 * vel.y + noiseyVel.y;
 }
 
 //--------------------------------------------------------------
 void Leaf::draw(){
-	ofSetColor(0);
+	ofPushMatrix();
 	ofSetColor(color);
-	ofDrawEllipse(pos, width, height);
-	ofSetColor(255);
+	ofTranslate(pos);
+	ofRotate(deg);
+	ofDrawEllipse(0, 0, width, height);
+	ofPopMatrix();
 }
 
 //--------------------------------------------------------------
