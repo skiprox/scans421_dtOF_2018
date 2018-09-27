@@ -14,5 +14,6 @@ class ofApp : public ofBaseApp{
 		void mouseMoved(int x, int y );
 
 		vector<Leaf> leaves;
+		float previousTime;
 		
 };

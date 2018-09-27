@@ -4,6 +4,7 @@
 void ofApp::setup(){
 	ofBackground(255);
     ofSetCircleResolution(100);
+    previousTime = ofGetElapsedTimef();
 	for (int i = 0; i < 3; i++) {
 		Leaf leaf;
 		glm::vec2 pos;
@@ -49,12 +50,15 @@ void ofApp::mouseReleased(int x, int y, int button){
 
 //--------------------------------------------------------------
 void ofApp::mouseMoved(int x, int y ){
-	Leaf leaf;
-	glm::vec2 pos;
-	pos.x = x;
-	pos.y = ofRandom(ofGetHeight() + 100, ofGetHeight() + 200);
-	float width = ofRandom(80, 100);
-	float height = ofRandom(80, 100);
-	leaf.setup(pos, width, height);
-	leaves.push_back(leaf);
+	if (previousTime < ofGetElapsedTimef() - 0.2) {
+		previousTime = ofGetElapsedTimef();
+		Leaf leaf;
+		glm::vec2 pos;
+		pos.x = x;
+		pos.y = ofRandom(ofGetHeight() + 100, ofGetHeight() + 200);
+		float width = ofRandom(80, 100);
+		float height = width * ofRandom(1.1, 1.5);
+		leaf.setup(pos, width, height);
+		leaves.push_back(leaf);
+	}
 }
