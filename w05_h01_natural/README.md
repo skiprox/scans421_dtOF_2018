@@ -1,4 +1,4 @@
-# Week 3, Portrait
+# Week 5, Natural
 
 ![screenshots/example.png](screenshots/example.png)
 
