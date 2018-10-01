@@ -41,7 +41,7 @@ void ofApp::mouseReleased(int x, int y, int button){
 	Leaf leaf;
 	glm::vec2 pos;
 	pos.x = x;
-	pos.y = ofRandom(ofGetHeight() + 100, ofGetHeight() + 200);
+	pos.y = y;
 	float width = ofRandom(80, 100);
 	float height = width * ofRandom(1.1, 1.5);
 	leaf.setup(pos, width, height);
