@@ -9,3 +9,5 @@
 - Week 3
 	- [windy](w03_h01_windy) wind from both sides moves balls side to side with easing :dash:
 	- [portrait](w03_h02_portrait) a self portrait with moving stuff :poop:
+- Week 4
+	- [natural](w05_h01_natural) balloons that float up through the screen :balloon: 
