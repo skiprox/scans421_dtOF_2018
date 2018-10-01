@@ -1,7 +1,7 @@
 #include "Leaf.hpp"
 
 //--------------------------------------------------------------
-void Leaf::setup(glm::vec2 _pos, float _width, float _height){
+void Leaf::setup(glm::vec3 _pos, float _width, float _height){
 	pos = _pos;
 	width = _width;
 	height = _height;
@@ -34,14 +34,21 @@ void Leaf::update(){
 //--------------------------------------------------------------
 void Leaf::draw(){
 	ofPushMatrix();
+	ofSpherePrimitive sphere;
 	ofSetColor(color);
 	ofTranslate(pos);
 	ofRotate(deg);
-	ofDrawEllipse(0, 0, width, height);
+	sphere.setRadius(width);
+	sphere.setPosition(0, 0, pos.z);
+	sphere.draw();
+	//ofDrawEllipse(0, 0, width, height);
 	ofPopMatrix();
 }
 
 //--------------------------------------------------------------
 glm::vec2 Leaf::getCurrentPos(){
-	return pos;
+	glm::vec2 newPos;
+	newPos.x = pos.x;
+	newPos.y = pos.y;
+	return newPos;
 }

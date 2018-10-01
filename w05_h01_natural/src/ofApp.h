@@ -15,5 +15,7 @@ class ofApp : public ofBaseApp{
 
 		vector<Leaf> leaves;
 		float previousTime;
+		ofLight	light;
+		ofEasyCam cam;
 		
 };
