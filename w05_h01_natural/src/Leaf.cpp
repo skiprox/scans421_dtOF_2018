@@ -11,11 +11,11 @@ void Leaf::setup(glm::vec3 _pos, float _width, float _height){
 	noiseyDeg = ofNoise(ofGetElapsedTimef() + 25);
 	float ranColorVal = ofRandom(1);
 	if (ranColorVal < 0.33) {
-		color = ofColor(ofRandom(60, 140), 40, ofRandom(180, 240), 100);
+		color = ofColor(ofRandom(60, 140), 40, ofRandom(180, 240));
 	} else if (ranColorVal < 0.66) {
-		color = ofColor(40, ofRandom(180, 240), ofRandom(60, 140), 100);
+		color = ofColor(40, ofRandom(180, 240), ofRandom(60, 140));
 	} else {
-		color = ofColor(ofRandom(180, 240), 40, ofRandom(60, 140), 100);
+		color = ofColor(ofRandom(180, 240), 40, ofRandom(60, 140));
 	}
 	noiseyVel.x = ofNoise(ofGetElapsedTimef());
 	noiseyVel.y = ofNoise(ofGetElapsedTimef() + 100);
@@ -37,7 +37,8 @@ void Leaf::draw(){
 	ofSpherePrimitive sphere;
 	ofSetColor(color);
 	ofTranslate(pos);
-	ofRotate(deg);
+	// ofRotate(deg);
+	ofRotateYDeg(deg);
 	sphere.setRadius(width);
 	sphere.setPosition(0, 0, pos.z);
 	sphere.draw();

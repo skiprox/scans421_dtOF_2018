@@ -11,12 +11,12 @@ void ofApp::setup(){
     ofSetSphereResolution(100);
     light.setDiffuseColor( ofFloatColor(.85, .85, .55) );
     light.setSpecularColor( ofFloatColor(1.f, 1.f, 1.f));
-    light.setPosition(ofGetWidth()/2, ofGetHeight(), 500);
+    light.setPosition(ofGetWidth()/2, ofGetHeight() + 800, -500);
 	for (int i = 0; i < 3; i++) {
 		Leaf leaf;
 		glm::vec3 pos;
 		pos.x = ofRandom(100, ofGetWidth() - 100);
-		pos.y = ofRandom(ofGetHeight() + 100, ofGetHeight() + 200);
+		pos.y = ofRandom(ofGetHeight() + 200, ofGetHeight() + 400);
 		pos.z = ofRandom(-200, 200);
 		float width = ofRandom(80, 100);
 		float height = width * ofRandom(1.1, 1.5);
@@ -27,28 +27,30 @@ void ofApp::setup(){
 
 //--------------------------------------------------------------
 void ofApp::update(){
-	cam.begin();
-	light.enable();
-    ofEnableLighting();
+	light.setPosition(ofGetWidth()/2, ofGetHeight(), 500);
 	vector<int> toDelete;
 	for (int i = 0; i < leaves.size(); i++) {
-		if (leaves[i].getCurrentPos().y < -100) {
+		if (leaves[i].getCurrentPos().y < -400) {
 			leaves.erase(leaves.begin() + i);
 		} else {
 			leaves[i].update();
 		}
 	}
-	light.disable();
-    ofDisableLighting();
     ofDisableSeparateSpecularLight();
-    cam.end();
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
+	cam.begin();
+	ofTranslate(-ofGetWidth()/2, -ofGetHeight()/2);
+	light.enable();
+    ofEnableLighting();
 	for (int i = 0; i < leaves.size(); i++) {
 		leaves[i].draw();
 	}
+	light.disable();
+    ofDisableLighting();
+    cam.end();
 }
 
 //--------------------------------------------------------------
@@ -71,7 +73,7 @@ void ofApp::mouseMoved(int x, int y ){
 		Leaf leaf;
 		glm::vec3 pos;
 		pos.x = x;
-		pos.y = ofRandom(ofGetHeight() + 100, ofGetHeight() + 200);
+		pos.y = ofRandom(ofGetHeight() + 200, ofGetHeight() + 400);
 		pos.z = ofRandom(-200, 200);
 		float width = ofRandom(80, 100);
 		float height = width * ofRandom(1.1, 1.5);
