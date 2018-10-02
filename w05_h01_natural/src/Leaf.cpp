@@ -11,11 +11,11 @@ void Leaf::setup(glm::vec3 _pos, float _width, float _height){
 	noiseyDeg = ofNoise(ofGetElapsedTimef() + 25);
 	float ranColorVal = ofRandom(1);
 	if (ranColorVal < 0.33) {
-		color = ofColor(ofRandom(60, 140), 40, ofRandom(180, 240));
+		color = ofColor(ofRandom(60, 140), 40, ofRandom(180, 240), 100);
 	} else if (ranColorVal < 0.66) {
-		color = ofColor(40, ofRandom(180, 240), ofRandom(60, 140));
+		color = ofColor(40, ofRandom(180, 240), ofRandom(60, 140), 100);
 	} else {
-		color = ofColor(ofRandom(180, 240), 40, ofRandom(60, 140));
+		color = ofColor(ofRandom(180, 240), 40, ofRandom(60, 140), 100);
 	}
 	noiseyVel.x = ofNoise(ofGetElapsedTimef());
 	noiseyVel.y = ofNoise(ofGetElapsedTimef() + 100);
