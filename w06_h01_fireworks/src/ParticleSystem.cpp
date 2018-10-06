@@ -14,7 +14,12 @@ ParticleSystem::ParticleSystem(){
 ParticleSystem::ParticleSystem(glm::vec2 _pos){
     pos = _pos;
     for (int i = 0; i < 500; i++) {
-        glm::vec2 vel = glm::vec2(ofRandom(-3, 3), ofRandom(-3, 3));
+        glm::vec2 vel;
+        float ranVal = ofRandom(0, 6.28);
+        float newRan = ofRandom(0.1, 6);
+        vel.x = sin(ranVal) * newRan;
+        vel.y = cos(ranVal) * newRan;
+        //glm::vec2 vel = glm::vec2(ofRandom(-3, 3), ofRandom(-6, 5));
         float mass = ofRandom(1, 2);
         Particle particle = Particle(pos, vel, mass);
         particles.push_back(particle);

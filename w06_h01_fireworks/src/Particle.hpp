@@ -14,5 +14,7 @@ class Particle {
 
 		glm::vec2 pos, vel, acc;
 		float mass;
+
+		int incrementer = 0;
 		
 };

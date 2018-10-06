@@ -36,8 +36,8 @@ void Particle::update(){
 
 void Particle::draw(){
     ofPushStyle();
-    float hue = ofMap(mass, 0, 20, 0, 255);
-    ofSetColor(ofColor::fromHsb(hue, 255, 255));
+    ofSetColor(ofColor(254, ofRandom(180, 255), 10, ofClamp(255-incrementer, 0, 255)));
+    incrementer++;
     ofDrawCircle(pos, 3);
     ofPopStyle();
 }

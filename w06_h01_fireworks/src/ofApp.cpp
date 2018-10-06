@@ -2,7 +2,8 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-	ofBackground(0);
+	// ofBackground(0);
+	ofSetBackgroundAuto(false);
 	ofSetCircleResolution(100);
 	gravity = glm::vec2(0, 0.1);
 	ParticleSystem ps = ParticleSystem(glm::vec2(ofGetWidth()*0.5, ofGetHeight()*0.5));
@@ -18,6 +19,8 @@ void ofApp::update(){
 
 //--------------------------------------------------------------
 void ofApp::draw(){
+	ofSetColor(0, 0, 0, 40);
+	ofDrawRectangle(0, 0, ofGetWidth(), ofGetHeight());
 	for (int i = 0; i < particleSystems.size(); i++) {
 		particleSystems[i].draw();
 	}
