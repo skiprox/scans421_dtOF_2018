@@ -3,7 +3,7 @@
 // we declare these values as "globals" - they are outside of any class
 //--------------------------------------------------------------
 
-const int nMovers		= 60;
+const int nMovers		= 10;
 const int nAttractors	= 3;
 // "const" means the values can never change (they are "hard-coded" here)
 
@@ -32,8 +32,8 @@ void ofApp::setup(){
 	{
 		Attractor attractor;
 		attractor.pos   = center;
-		attractor.pos.x += ofRandom(-250., 250.);	// keep attractors centered
-		attractor.pos.y += ofRandom(-250., 250.);	// within a 500x500 area
+		attractor.pos.x = (center.x + 250.) - (250. * a);
+		attractor.pos.y = center.y;
 		
 		attractors.push_back(attractor);
 	}
@@ -59,6 +59,12 @@ void ofApp::update(){
 	// update movers
 	for (int m=0; m<nMovers; m++)
 	{
+		for (int j = 0; j < nMovers; j++) {
+			if (j != m) {
+				glm::vec2 force = movers[m].getForce(movers[j].pos, movers[j].mass);
+				movers[j].applyForce(force);
+			}
+		}
 		movers[m].update();
 	}
 

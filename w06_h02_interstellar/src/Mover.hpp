@@ -19,6 +19,8 @@ public:
     void applyForce(glm::vec2 force);
     void applyDampingForce(float strength);
 
+    glm::vec2 getForce(glm::vec2 _pos, float _mass);
+
     void bounceWindowEdges();   // keep Mover on screen
     
     void update();
@@ -27,5 +29,6 @@ public:
     // variables
     glm::vec2 pos, vel, acc;
     float mass;
+    const float G = .4;     // gravitational constant
     
 };

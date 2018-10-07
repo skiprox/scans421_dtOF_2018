@@ -9,14 +9,14 @@ Attractor::Attractor()
 {
 	pos.x = ofRandom(ofGetWidth());
 	pos.y = ofRandom(ofGetHeight());
-	mass = ofRandom(5.,30.);
+	mass = ofRandom(25.,30.);
 	
 }
 
 Attractor::Attractor(glm::vec2 _pos, float _mass)
 {
 	pos = _pos;
-	mass = ofClamp(_mass, 5., 30.); // keep mass between 5 and 30
+	mass = ofClamp(_mass, 25., 30.); // keep mass between 25 and 30
 	
 }
 
