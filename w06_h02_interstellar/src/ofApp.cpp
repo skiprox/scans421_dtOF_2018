@@ -44,28 +44,36 @@ void ofApp::setup(){
 void ofApp::update(){
 	
 	// apply attractors' gravity forces on movers
-	for (int a=0; a<nAttractors; a++)
-	{
-		for (int m=0; m<nMovers; m++)
-		{
-			// calculate force
-			glm::vec2 force = attractors[a].getForce(movers[m]);
+	// for (int a=0; a<nAttractors; a++)
+	// {
+	// 	for (int m=0; m<nMovers; m++)
+	// 	{
+	// 		// calculate force
+	// 		glm::vec2 force = attractors[a].getForce(movers[m]);
             
-			// apply force
-			movers[m].applyForce(force);
-		}
-	}
+	// 		// apply force
+	// 		movers[m].applyForce(force);
+	// 	}
+	// }
 	
 	// update movers
-	for (int m=0; m<nMovers; m++)
+	for (int a=0; a<nMovers; a++)
 	{
+		for (int m=0; m<nAttractors; m++)
+		{
+			// calculate force
+			glm::vec2 force = attractors[m].getForce(movers[a]);
+            
+			// apply force
+			movers[a].applyForce(force);
+		}
 		for (int j = 0; j < nMovers; j++) {
-			if (j != m) {
-				glm::vec2 force = movers[m].getForce(movers[j].pos, movers[j].mass);
+			if (j != a) {
+				glm::vec2 force = movers[a].getForce(movers[j].pos, movers[j].mass);
 				movers[j].applyForce(force);
 			}
 		}
-		movers[m].update();
+		movers[a].update();
 	}
 
 }
