@@ -43,19 +43,6 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){
 	
-	// apply attractors' gravity forces on movers
-	// for (int a=0; a<nAttractors; a++)
-	// {
-	// 	for (int m=0; m<nMovers; m++)
-	// 	{
-	// 		// calculate force
-	// 		glm::vec2 force = attractors[a].getForce(movers[m]);
-            
-	// 		// apply force
-	// 		movers[m].applyForce(force);
-	// 	}
-	// }
-	
 	// update movers
 	for (int a=0; a<nMovers; a++)
 	{
