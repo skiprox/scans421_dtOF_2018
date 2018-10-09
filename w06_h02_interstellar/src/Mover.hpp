@@ -20,8 +20,6 @@ public:
     void applyDampingForce(float strength);
 
     glm::vec2 getForce(glm::vec2 _pos, float _mass);
-
-    void bounceWindowEdges();   // keep Mover on screen
     
     void update();
     void draw();

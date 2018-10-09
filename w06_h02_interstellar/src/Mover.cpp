@@ -78,32 +78,6 @@ glm::vec2 Mover::getForce(glm::vec2 _pos, float _mass)
     return force;
 }
 
-
-void Mover::bounceWindowEdges() {
-    
-    // keep Mover on screen (bounce off edges)
-    
-    // if (pos.x < 0) {
-    //     pos.x = 0;
-    //     vel.x *= -1;
-    // }
-    
-    // if (pos.x > ofGetWidth()) {
-    //     pos.x = ofGetWidth();
-    //     vel.x *= -1;
-    // }
-    
-    // if (pos.y < 0) {
-    //     pos.y = 0;
-    //     vel.y *= -1;
-    // }
-    
-    // if (pos.y > ofGetHeight()) {
-    //     pos.y = ofGetHeight();
-    //     vel.y *= -1;
-    // }
-}
-
 void Mover::update()
 {
     vel += acc;
