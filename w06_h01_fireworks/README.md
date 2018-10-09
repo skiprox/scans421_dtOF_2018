@@ -1,4 +1,4 @@
-# Week 6, Firewords
+# Week 6, Fireworks
 
 ![screenshots/example.png](screenshots/example.png)
 
