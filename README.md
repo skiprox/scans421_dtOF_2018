@@ -13,4 +13,4 @@
 	- [natural](w05_h01_natural) balloons that float up through the screen :balloon: 
 - Week 6
 	- [fireworks](w06_h01_fireworks) firework display :fireworks: 
-	- [interstellar](w06_h01_interstellar) a mock solar system :moon:
+	- [interstellar](w06_h02_interstellar) a mock solar system :moon:
