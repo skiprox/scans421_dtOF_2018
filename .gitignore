@@ -129,3 +129,9 @@ Desktop.ini
 
 .mailmap
 /apps*/
+
+#########################
+# project specific
+#########################
+color_flowers/bin/data/mao.txt
+color_flowers/bin/data/ice.txt
